@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: " en " }}">
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+{% include head.html %}
+
+<body>
+
+    {% include header.html %}
+
+    <main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            {{ content }}
+        </div>
+    </main>
+
+    {% include footer.html %}
+
+<canvas id="Mycanvas"></canvas>
+<script src="/assets/js/background.js"></script>
+</body>
+
+</html>
+<!-- 这是首页的框架 -->

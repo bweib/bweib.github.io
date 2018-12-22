@@ -1,0 +1,34 @@
+---
+layout: post
+title:  "页面上的图片太多？快试试懒加载！"
+date:   2018-01-22 14:00:30
+category: "Other"
+categories: jekyll blog
+---
+<p> 今天在项目开发的过程中，调用后台提供的一个接口的时候，返回了93张图片，并且每张图片都是700*700，真叫人头大！结果自然是打开页面的时候卡的比较严重。显然，作为一名合格的前端工程师，我们必须采取一些措施，以提高用户体验。 一方面向后台同事反应问题，提醒他们将图片的规格修改成比较小的，另一方面，我们前端也可以通过懒加载来减缓服务器压力，优化网页性能。就算是后台提供的图片很小，一下子加载那么多图片，用户的手机也会受不了，卡顿就在所难免了。 下面介绍一种比较简单的懒加载方案：使用echo.js来实现懒加载，优化多图片网页的性能。echo.js是一个简单的JavaScript图像延迟加载库。</p>
+> 插件描述：和 Lazy Load 一样，Echo.js 也是一个用于图像延迟加载 JavaScript。不同的是 Lazy Load 是基于 jQuery 的插件，而 Echo.js 不依赖于 jQuery 或其他 JavaScript 库，可独立使用。并且 Echo.js 非常小巧，压缩后不足 1KB。
+<p> 使用方法：</p>
+<p>html部分:</p>
+```html
+<img class="lazy" src="/images/loading.gif" data-echo='+d.data[i].imgurl+' alt='+d.data[i].name+' />  
+```
+<p style="color:#e92333;">注：data-echo 是真正要加载进去的图片  src可以用占位图代替 这里图片路径按照自己的文件夹的来写</p>
+<p>css</p>
+```css
+.lazy{
+    width:100%;height:100%;
+    background: url('../images/loading.gif') center center no-repeat;
+    }
+```
+引入echo.js:
+```html
+<script type="text/javascript" src="/js/echo.js"></script>
+ ```           
+```js
+//设置懒加载的参数  
+  echo.init({  
+    offset: 740,//离可视区域多少像素的图片可以被加载  
+　　 throttle: 150 //图片延时多少毫秒加载  
+  });
+```
+<p>OK，自此我们就完成了使用echo.js来实现简单的图片懒加载的过程，图片懒加载其实不难。</p>

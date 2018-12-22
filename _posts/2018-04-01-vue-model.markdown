@@ -1,0 +1,19 @@
+---
+layout: post
+title:  "vue-cli项目打包后页面刷新空白"
+date:   2018-04-01 14:30:30
+category: "vue"
+categories: jekyll blog
+---
+
+<p>使用vue-cli构建的项目写完后，npm run build 打包后，使用本地的http-server启动项目后，刷新页面会显示空白.第一个原因是资源路径的问题</p>
+<h3>解决方案：</h3> 
+<p>1.在config下的 index.js修改路径</p>
+<p>因为index跟assets都在统一目录下的，所以我们将路径改为./就行了</p>
+
+![修改路径](/assets/images/vue/1.jpg)
+
+<p>2.不使用history模式</p>
+<p>history模式虽然让路径看起来很美观，但是却在加载的时候会使我们的静态资源丢失。使用了history模式，这种模式需要与后台进行配合。因为路由启用了HTML5的History模式，如果服务端没有做支持的话就会404</p>
+> 后端配置看[官方文档](https://router.vuejs.org/zh-cn/essentials/history-mode.html).
+

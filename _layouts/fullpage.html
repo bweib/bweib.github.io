@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>简历更新中...</title>
+    <style>
+        body,
+        div,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        html {
+            overflow: hidden;
+        }
+
+        body {
+            width: 100%;
+            *cursor: default;
+            overflow: hidden;
+            font: 16px/1.5 "Microsoft YaHei", Helvetica, STHeiti STXihei, Microsoft JhengHei, Arial;
+        }
+
+        #pageContain {
+            overflow: hidden;
+        }
+
+        .page {
+            display: none;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .contain {
+            width: 100%;
+            height: 100%;
+            display: none;
+            position: relative;
+            z-index: 0;
+        }
+
+        .current .contain,
+        .slide .contain {
+            display: block;
+        }
+
+        .current {
+            display: block;
+            z-index: 1;
+        }
+
+        .slide {
+            display: block;
+            z-index: 2;
+        }
+
+        .swipe {
+            display: block;
+            z-index: 3;
+            transition-duration: 0ms !important;
+            -webkit-transition-duration: 0ms !important;
+        }
+
+        .page1 {
+            background: #37c1e3;
+        }
+
+        .page2 {
+            background: skyblue;
+        }
+
+        .page3 {
+            background: hotpink;
+        }
+
+        .page4 {
+            background: Cyan;
+        }
+
+        .page5 {
+            background: PaleGreen;
+        }
+
+        .page6 {
+            background: #22ffff;
+        }
+
+        #navBar {
+            z-index: 3;
+            position: absolute;
+            top: 30%;
+            right: 3%;
+        }
+
+        #navBar .active {
+            background: #ccc;
+        }
+
+        #navBar li {
+            cursor: pointer;
+            margin-bottom: 10px;
+            transition: all .7s ease;
+            border-radius: 50%;
+            line-height: 40px;
+            text-align: center;
+            width: 40px;
+            height: 40px;
+        }
+
+        .txt {
+            margin-top: 20%;
+            font-size: 50px;
+            color: #fff;
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" href="/assets/css/pullpage.css">
+</head>
+
+<body>
+    <div id="pageContain">
+        <div class="page page1 current">
+            <div class="contain">
+                简历更新中...
+            </div>
+        </div>
+
+        <div class="page page2">
+            <div class="contain">
+                简历更新中...
+            </div>
+        </div>
+
+        <div class="page page3">
+            <div class="contain">
+                简历更新中...
+            </div>
+        </div>
+
+        <div class="page page4">
+            <div class="contain">
+                简历更新中...
+            </div>
+        </div>
+
+        <div class="page page5">
+            <div class="contain">
+                简历更新中...
+            </div>
+        </div>
+    </div>
+
+    <ul id="navBar">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <script src="/assets/js/fullPage.min.js"></script>
+    <script>
+        var runPage, interval, autoPlay;
+
+        autoPlay = function (to) {
+            clearTimeout(interval);
+            interval = setTimeout(function () {
+                runPage.go(to);
+            }, 3000);
+        }
+
+        runPage = new FullPage({
+            id: 'pageContain',
+            slideTime: 800,
+            effect: {
+                transform: {
+                    translate: 'Y'
+                },
+                opacity: [0, 1]
+            },
+            mode: 'wheel, touch, nav:navBar',
+            easing: 'ease',
+            callback: function (index, thisPage) {
+                index = index + 1 > 3 ? 0 : index + 1;
+                autoPlay(index);
+            }
+        });
+
+        interval = setTimeout(function () {
+            runPage.go(runPage.thisPage() + 1);
+        }, 3000);
+    </script>
+
+</body>
+
+</html>

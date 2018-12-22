@@ -1,0 +1,65 @@
+---
+layout: post
+title:  "javaScript中的深浅克隆"
+date:   2018-04-09 12:30:30
+category: "Other"
+categories: jekyll blog
+---
+<h3>这篇文章：你会了解克隆的基本概念，常用方法。</h3>
+<p>为什么需要克隆？</p>
+<p>我们在使用JavaScript操作数组的时候，我们经常需要将数组进行备份，以备不时之需。事实证明如果只是简单的将它赋予其他变量，那么我们只要更改其中的任何一个，然后其他的也会跟着改变，这就导致了问题的发生。这并不是我们想要的效果</p>
+<p>浅克隆就是：把一个对象里面的东西一模一样地复制到另一个对象，并且这两个对象分别放在内存的不同地方。</p>
+<p>浅克隆实现方式</p>
+### 1. 遍历赋值
+```js
+const oldObj={
+    a:1,
+    b:[1,2,3],
+    c:{h:{i:"clone"}}
+}
+function shallowClone(o){
+    let obj={}
+    for(let i in obj){
+        obj[i]=o[i]
+    }
+    return obj;
+}
+var newObj=shallowClone(oldObj);
+console.log(newObj.c.h,oldObj.c.h);//{i:"clone"} {i:"clone"}
+```
+### 2. Object.assign方法
+```js
+const oldObj={
+    a:1,
+    b:[1,2,3,4],
+    c:{h:{i:"assign"}}
+}
+var newObj=Object.assign({},oldObj);
+console.log(newObj.c.h,oldObj.c.h);//{i:"assign"} {i:"assign"}
+```
+<p>潜克隆的缺点是无法克隆函数，当newObj的i改变 OldObj的i也跟着改变了。原始类型为值传递，对象类型仍为引用传递。这是因为我们操作了同一块内存，新值覆盖了旧值导致的。这个问题在深克隆中可以解决。</p>
+
+<p>深克隆是什么？深克隆就是在克隆的时候判断一下属性的类型是不是引用型变量，如果是的话就用递归方法让它一层一层进去复制自己。所有元素或属性均完全复制，与原对象完全脱离，也就是说所有对于新对象的修改都不会反映到原对象中。</p>
+<p>浅克隆实现方式</p>
+### 1. JSONparse
+```js
+const oldObj={
+    a;1,
+    b:[1,2,3,4],
+    c:{h:{i:"josn"}}
+}
+let newObj=JSON.parse(JSON.stringify(oldObj));
+console.log(oldObj.h.i,newObj.h.i);////{i:"josn"} {i:"josn"}
+```
+### 2. concat 拼接数组
+1)  作用：拼接数组
+2)  格式：数组名1.concat(数组名2);就是指将数组2拼接在数组1后面
+3)  返回值：为拼接后的新的数组
+4)  注意：原数组不受影响*/
+```js
+const arr1=[1,2,3,4];
+let arr2=arr1.conact();
+arr2[1]=8;
+console.log(arr2);//[1,8,3,4]
+```
+<p>以上就是js中常用的克隆方法。</p>

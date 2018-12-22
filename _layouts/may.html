@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>queenmay</title>
+    <style>
+        body,
+        div,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        html {
+            overflow: hidden;
+        }
+
+        body {
+            width: 100%;
+            *cursor: default;
+            overflow: hidden;
+            font: 16px/1.5 "Microsoft YaHei", Helvetica, STHeiti STXihei, Microsoft JhengHei, Arial;
+        }
+
+        #pageContain {
+            overflow: hidden;
+        }
+
+        .page {
+            display: none;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .contain {
+            width: 100%;
+            height: 100%;
+            display: none;
+            position: relative;
+            z-index: 0;
+        }
+
+        .current .contain,
+        .slide .contain {
+            display: block;
+        }
+
+        .current {
+            display: block;
+            z-index: 1;
+        }
+
+        .slide {
+            display: block;
+            z-index: 2;
+        }
+
+        .swipe {
+            display: block;
+            z-index: 3;
+            transition-duration: 0ms !important;
+            -webkit-transition-duration: 0ms !important;
+        }
+
+        .page1 {
+            background: #37c1e3;
+        }
+
+        .page2 {
+            background: skyblue;
+        }
+
+        .page3 {
+            background: hotpink;
+        }
+
+        .page4 {
+            background: Cyan;
+        }
+
+        .page5 {
+            background: PaleGreen;
+        }
+
+        .page6 {
+            background: #22ffff;
+        }
+
+        #navBar {
+            z-index: 3;
+            position: absolute;
+            top: 30%;
+            right: 3%;
+        }
+
+        #navBar .active {
+            background: #ccc;
+        }
+
+        #navBar li {
+            cursor: pointer;
+            margin-bottom: 10px;
+            transition: all .7s ease;
+            border-radius: 50%;
+            line-height: 40px;
+            text-align: center;
+            width: 40px;
+            height: 40px;
+        }
+
+        .txt {
+            margin-top: 20%;
+            font-size: 50px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .intrdu_title {
+            margin: 30px 0;
+            text-align: center;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .may1box {
+            width: 100%;
+            height: 208px;
+            text-align: center;
+            margin: 160px auto;
+        }
+
+        .may1box ul {
+            width: 800px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .may1box li {
+            /* width: 312px;
+            height: 416px; */
+            padding: 6px;
+            box-sizing: border-box;
+            background: #fff;
+            margin: 0 30px;
+            float: left;
+            border-radius: 3px;
+        }
+
+        .may1box li:hover {
+            background: hotpink;
+        }
+
+        li img {
+            height: 100%;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .yoga_box {
+            width: 100%;
+            text-align: center;
+        }
+
+        .yoga {
+            width: 800px;
+            margin: 0 auto;
+        }
+
+        .yoga h2 {
+            /* width: 400px; */
+            color: #fff;
+        }
+
+        .yogapic {
+            /* float: left; */
+            width: 400px;
+            height: 600px;
+            background: url('../assets/images/may/may5.JPG') center center no-repeat;
+            background-size: 100%;
+            margin: 0 auto;
+        }
+
+        .besides {
+            text-align: center;
+            color: #fff;
+            ;
+        }
+
+        .hair_box {
+            width: 600px;
+            height: 300px;
+            text-align: center;
+            margin: 80px auto;
+        }
+
+        .hair_box li {
+            width: 200px;
+            height: 400;
+            margin: 30px 30px;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 3px;
+            background: #fff;
+            float: left;
+        }
+
+        .hair_box li:hover {
+            background: yellowgreen;
+        }
+
+        .contact {
+            color: #fff;
+            margin: 100px auto;
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" href="/assets/css/pullpage.css">
+</head>
+
+<body>
+    <div id="pageContain">
+        <div class="page page1 current">
+            <div class="contain">
+                <h2>Hi,I'm queenmay</h2>
+                <p class="intrdu_title">
+                    I am 26 years old. I am from Guangxi, China. My major is English Pharmacy. I am currently working
+                    in Guangzhou Tianyi Digital Technology Co., Ltd. for foreign trade.
+                </p>
+                <div class="may1box">
+                    <ul>
+                        <li><img src="../assets/images/may/may1.JPG" alt=""></li>
+                        <li><img src="../assets/images/may/may2.JPG" alt=""></li>
+                        <li><img src="../assets/images/may/may3.JPG" alt=""></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="page page2 ">
+            <div class="contain">
+                <div class="yoga_box">
+                    <div class="yoga">
+                        <div class="yogapic">
+
+                        </div>
+                        <!-- <img src="../assets/images/may/may5.JPG" alt=""> -->
+                        <h2>平时我喜欢练瑜伽，我正在努力学习瑜伽，为成为一名优秀的瑜伽老师而努力。</h2>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page page3 ">
+            <div class="contain">
+                <h2 class="besides">Besides, I like to knit my hair. Does it look cool?</h2>
+                <ul class="hair_box">
+                    <li><img src="../assets/images/may/may3.JPG" alt=""></li>
+                    <li><img src="../assets/images/may/may4.JPG" alt=""></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="page page4">
+            <div class="contain">
+                <h2 class="contact">Contact me:150******</h2>
+            </div>
+        </div>
+
+        <!-- <div class="page page5">
+            <div class="contain">
+                简历更新中...
+            </div>
+        </div> -->
+    </div>
+
+    <ul id="navBar">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <!-- <li>5</li> -->
+    </ul>
+
+    <script src="/assets/js/fullPage.min.js"></script>
+    <script>
+        var runPage, interval, autoPlay;
+
+        autoPlay = function (to) {
+            clearTimeout(interval);
+            interval = setTimeout(function () {
+                runPage.go(to);
+            }, 3000);
+        }
+
+        runPage = new FullPage({
+            id: 'pageContain',
+            slideTime: 800,
+            effect: {
+                transform: {
+                    translate: 'Y'
+                },
+                opacity: [0, 1]
+            },
+            mode: 'wheel, touch, nav:navBar',
+            easing: 'ease',
+            callback: function (index, thisPage) {
+                // index = index + 1 > 3 ? 0 : index + 1;  thisPage
+                // autoPlay(index);
+            }
+        });
+
+        // interval = setTimeout(function () {
+        //     runPage.go(runPage.thisPage() + 1);
+        // }, 3000);
+    </script>
+
+</body>
+
+</html>

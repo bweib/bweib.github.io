@@ -1,0 +1,47 @@
+---
+layout: post
+title:  "小程序开发之获取token值"
+date:   2018-02-01 14:30:30
+category: "Other"
+categories: jekyll blog
+---
+<p>在小程序开发的过程中。我们在处理登录模块的时候需要拿到token值。根据官方文档的描述，这一过程需要与后端同事共同配合才能拿到。</p>
+
+![文档](/assets/images/gettoken/1.png)
+
+<p>小程序中获取token的方式</P>
+```js
+// 登录  
+   wx.login({  
+     success: res => {  
+       // 发送 res.code 到后台换取 openId, sessionKey, unionId  
+       // console.log(res)  
+       if (res.code) {  
+         //发起网络请求  
+         wx.request({  
+           url: 'url',  
+           method: 'POST',  
+           data: {  
+             // x: '',  
+             // y: ''  
+             code: res.code//将code发给后台拿token  
+           },  
+           header: {  
+             'content-type': 'application/json' // 默认值  
+           },  
+           success: function (res) {  
+             // 存token  
+             console.log('token='+res.data.data.token)  
+             that.globalData.token = res.data.data.token;//拿到后将token存入全局变量  以便其他页面使用  
+           }  
+         })  
+       } else {  
+         console.log('获取用户登录态失败！' + res.errMsg)  
+       }  
+     }  
+   })  
+```
+<p>可以在控制台中看到我们已经拿到token:</p>
+
+![token](/assets/images/gettoken/2.png)
+<p>其实我们要做的就是将code值发送给后端，后端去相应的接口请求之后就能给我们返回token值！在其他页面也需要用到token来请求数据,所以拿到它时候我们还需将其存到全局变量中，以便页面可以直接拿到（getApp().globalData.token).</p>

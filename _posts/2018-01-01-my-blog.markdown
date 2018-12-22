@@ -1,0 +1,8 @@
+---
+layout: post
+title:  "我开通了jekll博客，欢迎来访问"
+date:   2018-01-01 00:00
+category: "Other"
+categories: jekyll blog 
+---
+<p>现在，我使用jekll (一个简单的博客形态的静态站点生产机器)开通了个人github博客！我将在这里记录我学习（前端）技术的过程。欢迎大家和我一起交流！！！我们一起学习，进步！走向人生巅峰！！！</p> 

@@ -1,0 +1,48 @@
+// 公众的样式写在这里
+body {
+    font-family: "Microsoft Yahei", "微软雅黑", SimSun, sans-serif !important;
+    background-color: #e92333;
+}
+
+input,
+label,
+select,
+option,
+textarea,
+button,
+fieldset,
+legend {
+    font-family: "Microsoft Yahei", "微软雅黑", SimSun, sans-serif !important;
+    color: red;
+}
+
+.main-container {
+    padding-top: 70px;
+    padding-bottom: 30px;
+}
+
+li {
+    list-style: none;
+    margin: 0 20px;
+}
+
+a {
+    color: blueviolet;
+}
+
+.navbar {
+    line-height: 15px;
+}
+
+.page-content {
+    margin-top: 30px;
+}
+
+#Mycanvas {
+    position: fixed;
+    top: 0;
+}
+
+.list-gro li.list-group-item {
+    margin: 20px 0;
+}

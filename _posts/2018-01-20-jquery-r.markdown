@@ -1,0 +1,53 @@
+---
+layout: post
+title:  "jQuery对象与DOM对象的相互转换"
+date:   2018-01-20 11:00:30
+category: "Other"
+categories: jekyll blog
+---
+
+<p>通过jQuery选择器获取的对象与通过document.getElementById获取的对象是不同类型对象。</p>
+<p>使用jQuery获取的对象不能使用DOM中的方法，而DOM对象也不能直接使用jQuery中的方法，例如  $p.html(*)是会报错的。那就涉及到将他们相互转换的问题，那么，如何将他们相互转换呢？</p>
+<h4>1.jQuery对象转DOM对象</h4>
+<p>方法一:[index]</p>
+<p> jQuery对象是一个数据对象， 可以通过[index] 的方法， 来得到相应的DOM对象。</p>
+```html
+<p id="p-jq">ppp jQuery</p>
+
+```
+```js
+var $p = $('#p-jq'); //jQuery对象
+var p = $p[0]; //DOM对象
+console.log($p); // 转DOM对象
+console.log(p);
+```
+<p>结果如下</p>
+
+![dom](http://img.blog.csdn.net/20170420155532256?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZ2l0aHViXzM3NzcyODA1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+
+<p>方法二:.get(index)  jQuery本身提供</p>
+```js
+var $p = $('#p-jq'); //jQuery对象
+console.log($p);
+var p = $p.get(0);//get(index)方法
+console.log(p);
+```
+<p>运行结果同上：</p>
+
+![dom](http://img.blog.csdn.net/20170420155532256?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZ2l0aHViXzM3NzcyODA1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+
+<h4>2.DOM对象转jQuery对象</h4>
+<p>// 对于已经是一个DOM对象，只需要用$()把DOM对象包装起来，就可以获得一个jQuery对象了。$(DOM对象)</p>
+
+```js
+var div = document.getElementById('div');  
+    console.log(div);  
+    // 使用$(dom)方法转jquery对象  
+    var $div=$(div);  
+    console.log($div);
+```
+<p>运行结果如下</p>
+
+![jq](http://img.blog.csdn.net/20170420160843484?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZ2l0aHViXzM3NzcyODA1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+
+<p>这样就转换成功了！</p>

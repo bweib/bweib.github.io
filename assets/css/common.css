@@ -1,0 +1,39 @@
+li {
+    list-style: none;
+    margin: 0 20px;
+}
+
+a {
+    color: blueviolet;
+}
+
+.navbar {
+    line-height: 15px;
+    margin-bottom: 10px;
+}
+
+.page-content {
+    margin-top: 66px;
+}
+
+#Mycanvas {
+    position: fixed;
+    top: 0;
+    left: 10%;
+    z-index: -1;
+}
+
+.list-group-item-info {
+    margin: 20px 0 0 0;
+}
+
+.list-group a {
+    border: none;
+    margin: 15px 0;
+    background-color: rgba(77, 127, 219, 0.1);
+    border-radius: 4px;
+}
+
+.list-group a h5{
+    font-size: 20px;
+}
