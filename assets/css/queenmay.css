@@ -107,4 +107,20 @@ header {
 
 .company {
     margin: 0.3rem 0;
+    text-indent: 2em;
+}
+。swiper-container{
+    position: relative;
+}
+.swiper-button-next,.swiper-button-prev{
+    position: absolute;
+    border:1px solid pink;
+    z-index: 99;
+    background: rgba(0,0,0,.2);
+    text-align: center;
+    width: 0.4rem;
+    height: 0.4rem;
+    line-height: 0.4rem;
+    border-radius: 3px;
+    color: hotpink;
 }
