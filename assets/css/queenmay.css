@@ -41,7 +41,21 @@
     background: url(../images/may/company/8.jpg) center center no-repeat;
     background-size: 100%;
 }
-
+.works{
+    position:absolute;
+    color: #fff;
+    font-size: 0.5rem;
+    bottom: 0;
+    left: 0.3rem;
+}
+.ourcompany{
+    margin-top: 0.3rem;
+    background: hotpink;
+    color: #fff;
+    border-radius:5px;
+    padding-left: 0.3rem;
+    box-sizing: border-box;
+}
 header {
     text-align: center;
     widows: 100%;
@@ -56,6 +70,8 @@ header {
     background: #fff;
     position: relative;
     height: auto;
+    padding: 0.3rem 0;
+    box-sizing: border-box;
 }
 
 .pic {
@@ -75,7 +91,7 @@ header {
 .tag {
     position: absolute;
     right: 0.3rem;
-    top: 0.3rem;
+    top: 3.5rem;
 }
 
 .tag li {
