@@ -87,11 +87,13 @@ header {
     border-radius: 0.3rem;
     width: 100%;
 }
-
+.aboutme{
+    position: relative;
+}
 .tag {
     position: absolute;
-    right: 0.3rem;
-    top: 3.5rem;
+    right: 0.2rem;
+    top: 0.5rem;
 }
 
 .tag li {
@@ -139,4 +141,7 @@ header {
     line-height: 0.4rem;
     border-radius: 3px;
     color: hotpink;
+}
+.web,.email,.myphone{
+    color: blue;
 }
