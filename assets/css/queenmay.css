@@ -98,9 +98,10 @@ header {
 
 .tag li {
     padding: 0.3rem;
-    background: pink;
+    background: hotpink;
     margin: 0.3rem auto;
     border-radius: 0.1rem;
+    color: #fff;
 }
 
 .more {
